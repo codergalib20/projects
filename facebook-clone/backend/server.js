@@ -11,6 +11,10 @@ const corsOptions = require("./config/corsOptions");
 connectDB(process.env.DATABASE_URL_MONGO);
 colors.enable();
 app.use(cors(corsOptions));
+
+// All Routes
+app.use("/api/v1/users", require("./routes/user/user.route"));
+
 // listening application
 mongoose.connection.once("open", () => {
   console.log();
